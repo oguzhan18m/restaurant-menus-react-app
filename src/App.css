@@ -1,0 +1,85 @@
+* {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+body {
+   background: rgb(255, 255, 255);
+   font-family: sans-serif;
+}
+.container {
+   width: 95%;
+   margin: 50px auto;
+}
+.row {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   flex-flow: wrap;
+   margin-top: 10px;
+   margin-bottom: 10px;
+}
+
+.heading {
+   text-align: center;
+   font-size: 60px;
+   margin-bottom: 30px;
+}
+.section-heading {
+   font-size: 20px;
+   font-weight: 700;
+   margin-top: 20px;
+}
+.card {
+   align-items: center;
+   width: 10%;
+   background: rgb(209, 209, 209);
+   border: 1px solid rgb(70, 70, 70);
+   border-radius: 2px;
+   margin: 0.5px;
+   transition: 0.3s;
+}
+.card:hover {
+   transform: scale(1.05);
+   box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);
+}
+.card-body {
+   padding: 5px;
+   text-align: center;
+   justify-content: center;
+}
+.card-title {
+   font-size: 14px;
+   text-align: center;
+   padding: 5px 5px;
+   margin-top: 5px;
+   margin-bottom: 5px;
+}
+.card-text {
+   text-align: center;
+   font-size: 12px;
+   font-weight: 600;
+   margin-top: 10px;
+   margin-bottom: 10px;
+}
+.card-img-top {
+   width: 10%;
+   margin: 10px 5px;
+}
+
+.card-body .btn {
+   display: block;
+   color: black;
+   text-align: center;
+   background: linear-gradient(to right, #ff416c, #ff4b2b);
+   border: whitesmoke;
+   border-radius: 2px;
+   text-decoration: none;
+   padding: 5px 5px;
+   margin: auto;
+}
+
+.card-body .btn:hover {
+   background: rgb(35, 36, 35);
+   color: seashell;
+}
