@@ -1,6 +1,6 @@
 import React from "react";
 import "../App.css";
-import data from "../menus.json";
+import { data } from "./menus";
 
 let tatlilar = data.menus[0].items[8].items;
 

@@ -1,6 +1,6 @@
 import React from "react";
 import "../App.css";
-import data from "../menus.json";
+import { data } from "./menus";
 
 let corbalar = data.menus[0].items[4].items;
 

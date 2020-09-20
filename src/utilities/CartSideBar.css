@@ -1,72 +1,60 @@
-.navbar {
-   background-color: #060b26;
-   height: 80px;
-   display: flex;
-   justify-content: start;
-   align-items: center;
+.list {
+   display: inline;
+   margin: 20px auto;
 }
 
-.menu-bars {
-   margin-left: 2rem;
-   font-size: 2rem;
-   background: none;
+.cart-row {
+   margin-top: 10px;
+   margin-bottom: 10px;
+   box-shadow: 0.5px 2px #8b8b8b2c;
+   padding: 5px 5px;
 }
 
-.nav-menu {
-   background-color: #060b26;
-   width: 250px;
-   height: 100vh;
-   display: flex;
-   justify-content: center;
-   position: fixed;
-   top: 0;
-   left: -100%;
-   transition: 850ms;
+.list-item-name {
+   font-size: 15px;
+   font-weight: 600;
+   margin: 5px;
+   color: midnightblue;
 }
 
-.nav-menu.active {
-   left: 0;
-   transition: 350ms;
+.list-item-price {
+   font-size: 13px;
+   font-weight: 400;
+   margin: 5px;
+   color: rgb(0, 0, 0);
 }
 
-.nav-text {
-   display: flex;
-   justify-content: start;
-   align-items: center;
-   padding: 8px 0px 8px 16px;
-   list-style: none;
-   height: 60px;
-}
-
-.nav-text a {
+.btn-kapat {
+   color: white;
+   text-align: center;
+   background: linear-gradient(to right, #615f5f, #4d4d4d);
+   border: whitesmoke;
+   border-radius: 2px;
    text-decoration: none;
-   color: #f5f5f5;
-   font-size: 18px;
-   width: 95%;
-   height: 100%;
-   display: flex;
-   align-items: center;
-   padding: 0 16px;
-   border-radius: 4px;
+   padding: 10px 10px;
+   margin: auto;
 }
 
-.nav-text a:hover {
-   background-color: #1a83ff;
+.btn-tamamla {
+   color: white;
+   text-align: center;
+   background: linear-gradient(to right, #ff416c, #ff4b2b);
+   border: whitesmoke;
+   border-radius: 2px;
+   text-decoration: none;
+   padding: 10px 10px;
+   margin: auto;
+   margin-left: 5px;
 }
 
-.nav-menu-items {
-   width: 100%;
-}
-
-.navbar-toggle {
-   background-color: #060b26;
-   width: 100%;
-   height: 80px;
-   display: flex;
-   justify-content: start;
-   align-items: center;
-}
-
-span {
-   margin-left: 16px;
+.btn-temizle {
+   color: white;
+   text-align: center;
+   background: linear-gradient(to right, #ffb663, #ff9a03);
+   border: whitesmoke;
+   border-radius: 2px;
+   text-decoration: none;
+   padding: 10px 10px;
+   margin: auto;
+   margin-left: 5px;
 }

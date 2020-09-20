@@ -1,12 +1,10 @@
 import React from "react";
 import "../App.css";
-import data from "../menus.json";
+import { data } from "./menus";
 
 let indirimliMenu = data.menus[0].items[0].items;
 
-console.log(indirimliMenu);
-
-const IndirimliMenuler = ({ openSubMenuModal }) => {
+const IndirimliMenuler = ({ openSubMenuModal, addToCart }) => {
    return indirimliMenu.map((item, i) => {
       return (
          <div className="card" key={i}>
@@ -14,9 +12,21 @@ const IndirimliMenuler = ({ openSubMenuModal }) => {
             <div className="card-body ">
                <h5 className="card-title">{item.name}</h5>
                <p className="card-text">{item.price} TL</p>
-               <button className="btn" onClick={(e) => openSubMenuModal()}>
-                  Menü İçeriğini Seç
-               </button>
+               {item.subMenus ? (
+                  <button
+                     className="btn-menu-sec"
+                     onClick={() => openSubMenuModal(item.id)}
+                  >
+                     Menü İçeriğini Seç
+                  </button>
+               ) : (
+                  <button
+                     className="btn"
+                     onClick={() => addToCart(item.name, item.price)}
+                  >
+                     Siparişine Ekle
+                  </button>
+               )}
             </div>
          </div>
       );

@@ -1,6 +1,6 @@
 import React from "react";
 import "../App.css";
-import data from "../menus.json";
+import { data } from "./menus";
 
 let salatalar = data.menus[0].items[6].items;
 

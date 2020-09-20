@@ -12,7 +12,7 @@ const DiyetMenuForm = ({
          <form>
             <div class="form-group">
                <label for="kirmizi-et">Ana Yemek Seciniz</label>
-               <select class="form-control" id="kirmizi-et">
+               <select class="form-control" id="diyet-option">
                   {diyetIndirimliAnaYemekler.map((yemek) => {
                      return (
                         <option value="yan-1">

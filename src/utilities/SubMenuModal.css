@@ -1,0 +1,23 @@
+.btn-kapat {
+   color: white;
+   text-align: center;
+   background: linear-gradient(to right, #615f5f, #4d4d4d);
+   border: whitesmoke;
+   border-radius: 2px;
+   text-decoration: none;
+   padding: 10px 10px;
+   margin: auto;
+   margin-top: 10px;
+}
+
+.btn-siparise-ekle {
+   color: white;
+   text-align: center;
+   background: linear-gradient(to right, #ff416c, #ff4b2b);
+   border: whitesmoke;
+   border-radius: 2px;
+   text-decoration: none;
+   padding: 10px 10px;
+   margin-left: 10px;
+   cursor: pointer;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import "./Forms.css";
 
 const KirmiziEtAnaYemekForm = ({
    kirmiziEtAnaYemekler,
@@ -8,11 +9,11 @@ const KirmiziEtAnaYemekForm = ({
    indirimliMenuIcecek,
 }) => {
    return (
-      <div className="container-fluid">
+      <div className="container">
          <form>
             <div class="form-group">
                <label for="kirmizi-et">Ana Yemek Seciniz</label>
-               <select class="form-control" id="kirmizi-et">
+               <select id="kirmizi-et">
                   {kirmiziEtAnaYemekler.map((yemek) => {
                      return (
                         <option value="yan-1">
