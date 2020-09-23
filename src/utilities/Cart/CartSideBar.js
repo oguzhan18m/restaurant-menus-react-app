@@ -21,13 +21,18 @@ const CartSideBar = ({ cart, openCart, setOpenCart, clearCart }) => {
                   <div className="list-items">
                      <div className="cart-row">
                         <div className="list-item-name">{item.name}</div>
-                        <div className="list-item-price">{item.price}</div>
+                        <div className="list-item-price">{`+ ${item.price} TL`}</div>
                      </div>
                   </div>
                </div>
             );
          })}
          <br />
+         <span className="toplam-tutar">TOPLAM TUTAR : </span>
+         {cart.reduce((result, item) => {
+            return result + item.price;
+         }, 0)}{" "}
+         TL
          <div className="btn-row">
             <button className="btn-kapat" onClick={() => setOpenCart(false)}>
                Kapat
@@ -43,6 +48,7 @@ const CartSideBar = ({ cart, openCart, setOpenCart, clearCart }) => {
 
 const customStyles = {
    content: {
+      width: "50%",
       top: "50%",
       left: "50%",
       right: "auto",

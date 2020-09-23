@@ -12,7 +12,29 @@
    width: 50%;
 }
 
+.form-group label{
+   font-size: 12px;
+   font-weight:600;
+   margin-top:5px;
+}
+
 .form-group select {
    display: block;
    align-content: center;
+   padding:5px;
+   margin-top:10px;
+   margin-bottom:10px;
+}
+.btn-secimi-tamamla{
+   color: white;
+   text-align: center;
+   background: green;
+   border: whitesmoke;
+   border-radius: 2px;
+   text-decoration: none;
+   padding: 5px 5px;
+   margin: 5px;
+   margin-left: 5px;
+   cursor: pointer;
+   
 }

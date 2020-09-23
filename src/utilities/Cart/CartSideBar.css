@@ -11,17 +11,21 @@
 }
 
 .list-item-name {
-   font-size: 15px;
+   font-size: 13px;
    font-weight: 600;
    margin: 5px;
    color: midnightblue;
 }
 
 .list-item-price {
-   font-size: 13px;
+   font-size: 10px;
    font-weight: 400;
    margin: 5px;
    color: rgb(0, 0, 0);
+}
+
+.btn-row {
+   margin-top: 10px;
 }
 
 .btn-kapat {
@@ -33,6 +37,7 @@
    text-decoration: none;
    padding: 10px 10px;
    margin: auto;
+   cursor: pointer;
 }
 
 .btn-tamamla {
@@ -45,6 +50,7 @@
    padding: 10px 10px;
    margin: auto;
    margin-left: 5px;
+   cursor: pointer;
 }
 
 .btn-temizle {
@@ -57,4 +63,10 @@
    padding: 10px 10px;
    margin: auto;
    margin-left: 5px;
+   cursor: pointer;
+}
+
+.toplam-tutar {
+   font-size: 17px;
+   font-weight: 900;
 }

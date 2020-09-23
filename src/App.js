@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import "./App.css";
 import { FaReceipt } from "react-icons/fa";
-import CartSideBar from "./utilities/CartSideBar";
+import CartSideBar from "./utilities/Cart/CartSideBar";
 import IndirimliMenuler from "./components/IndirimliMenuler";
 import KirmiziEtYemekleri from "./components/KirmiziEtYemekleri";
 import SebzeliEtliYemekler from "./components/SebzeliEtliYemekler";
@@ -13,23 +13,14 @@ import YanLezzetler from "./components/YanLezzetler";
 import Tatli from "./components/Tatli";
 import GazsizIcecekler from "./components/GazsizIcecekler";
 import GazliIcecekler from "./components/GazliIcecekler";
-import SubMenuModal from "./utilities/SubMenuModal";
+import SubMenuModal from "./utilities/SubMenuModal/SubMenuModal";
 
 function App() {
    //States
    const [openSubMenu, setOpenSubMenu] = useState(false);
    const [openCart, setOpenCart] = useState(false);
-   const [cart, setCart] = useState([{}]);
+   const [cart, setCart] = useState([]);
    const [indirimliId, setIndirimliId] = useState("");
-
-   console.log(cart);
-
-   //Menu Option States
-   // const [anayemek, setAnayemek] = useState("");
-   // const [yanLezzet1, setYanLezzet1] = useState("");
-   // const [yanLezzet2, setYanLezzet2] = useState("");
-   // const [tatli, setTatli] = useState("");
-   // const [icecek, setIcecek] = useState("");
 
    //References
    const indirimliSection = useRef(null);
@@ -68,15 +59,18 @@ function App() {
    const scrollToSalataSection = () =>
       window.scrollTo(0, salataSection.current.offsetTop);
 
+   //Open Sub-Menu Modal
    const openSubMenuModal = (id) => {
       setIndirimliId(id);
       setOpenSubMenu(true);
    };
 
+   //Siparisi Goruntule
    const openCartSideBar = (e) => {
       setOpenCart(true);
    };
 
+   //Siparisine Ekle
    const addToCart = (name, price) => {
       const pushedCart = [...cart];
 
@@ -88,6 +82,7 @@ function App() {
       setCart(pushedCart);
    };
 
+   //Siparisi Temizle
    const clearCart = () => {
       setCart([]);
    };
@@ -97,8 +92,10 @@ function App() {
          <div className="heading">SambaPos Restaurant</div>
          <button className="btn-siparis" onClick={() => openCartSideBar()}>
             <FaReceipt /> Siparişi Görüntüle{" "}
-            {cart.length > 1 ? `(${cart.length - 1})` : ""}
+            {cart.length >= 1 ? `(${cart.length})` : ""}
          </button>
+
+         {/* RIGHT SCROLL MENU LIST */}
          <div className="section-list">
             <ul>
                <div className="heading">Menü</div>
@@ -158,7 +155,7 @@ function App() {
                   openSubMenu={openSubMenu}
                   setOpenSubMenu={setOpenSubMenu}
                   indirimliId={indirimliId}
-                  setCart={setCart}
+                  addToCart={addToCart}
                />
             </div>
          )}
@@ -179,6 +176,7 @@ function App() {
          </div>
          <br />
 
+         {/* COMPONENTS*/}
          <div className="row col s12">
             <IndirimliMenuler
                openSubMenuModal={openSubMenuModal}

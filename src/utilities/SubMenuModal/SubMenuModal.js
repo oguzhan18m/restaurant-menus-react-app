@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import "./SubMenuModal.css";
-import { data } from "../components/menus";
-import BeyazEtMenuForm from "./forms/BeyazEtMenuForm";
-import KirmiziEtAnaYemekForm from "./forms/KirmiziEtAnaYemekForm";
-import SebzeliEtliIndirimMenuAnaYemeklerForm from "./forms/SebzeliEtliIndirimMenuAnaYemeklerForm";
-import DiyetMenuForm from "./forms/DiyetMenuForm";
-import CocaColaIndirimMenuForm from "./forms/CocaColaIndirimMenuForm";
-import VejeteryanIndirimForm from "./forms/VejeteryanIndirimForm";
+import { data } from "../../components/menus";
+
+import BeyazEtMenuForm from "../forms/BeyazEtMenuForm";
+import KirmiziEtAnaYemekForm from "../forms/KirmiziEtAnaYemekForm";
+import SebzeliEtliIndirimMenuAnaYemeklerForm from "../forms/SebzeliEtliIndirimMenuAnaYemeklerForm";
+import DiyetMenuForm from "../forms/DiyetMenuForm";
+import CocaColaIndirimMenuForm from "../forms/CocaColaIndirimMenuForm";
+import VejeteryanIndirimForm from "../forms/VejeteryanIndirimForm";
 
 let kirmiziEtAnaYemekler = data.menus[1].items;
 let beyazEtAnaYemekler = data.menus[2].items;
@@ -24,8 +25,18 @@ const SubMenuModal = ({
    openSubMenu,
    setOpenSubMenu,
    indirimliId,
-   setCart,
+   addToCart,
 }) => {
+   const [tumMenu, setTumMenu] = useState([]);
+
+   const menuName = tumMenu.map((secilen) => secilen.name + "-");
+
+   const menuPrice = data.menus[0].items[0].items[1].price;
+
+   useEffect(() => {
+      Modal.setAppElement("body");
+   }, []);
+
    if (indirimliId === "kirmizi") {
       return (
          <Modal
@@ -33,13 +44,16 @@ const SubMenuModal = ({
             isOpen={openSubMenu}
             onRequestClose={() => setOpenSubMenu(false)}
          >
-            <KirmiziEtAnaYemekForm
-               kirmiziEtAnaYemekler={kirmiziEtAnaYemekler}
-               indirimliMenuYanLezzetler1={indirimliMenuYanLezzetler1}
-               indirimliMenuYanLezzetler2={indirimliMenuYanLezzetler2}
-               indirimliMenuTatli={indirimliMenuTatli}
-               indirimliMenuIcecek={indirimliMenuIcecek}
-            />
+            <div className="container-fluid">
+               <KirmiziEtAnaYemekForm
+                  kirmiziEtAnaYemekler={kirmiziEtAnaYemekler}
+                  indirimliMenuYanLezzetler1={indirimliMenuYanLezzetler1}
+                  indirimliMenuYanLezzetler2={indirimliMenuYanLezzetler2}
+                  indirimliMenuTatli={indirimliMenuTatli}
+                  indirimliMenuIcecek={indirimliMenuIcecek}
+                  setTumMenu={setTumMenu}
+               />
+            </div>
 
             <button className="btn-kapat" onClick={() => setOpenSubMenu(false)}>
                Kapat
@@ -47,7 +61,7 @@ const SubMenuModal = ({
 
             <button
                className="btn-siparise-ekle"
-               onClick={() => setOpenSubMenu(false)}
+               onClick={() => addToCart(menuName, menuPrice)}
             >
                Siparişe Ekle
             </button>
@@ -67,7 +81,7 @@ const SubMenuModal = ({
                   indirimliMenuYanLezzetler2={indirimliMenuYanLezzetler2}
                   indirimliMenuTatli={indirimliMenuTatli}
                   indirimliMenuIcecek={indirimliMenuIcecek}
-                  setCart={setCart}
+                  setTumMenu={setTumMenu}
                />
             </div>
             <button className="btn-kapat" onClick={() => setOpenSubMenu(false)}>
@@ -75,7 +89,7 @@ const SubMenuModal = ({
             </button>
             <button
                className="btn-siparise-ekle"
-               onClick={() => setOpenSubMenu(false)}
+               onClick={() => addToCart(menuName, menuPrice)}
             >
                Siparişe Ekle
             </button>
@@ -97,6 +111,7 @@ const SubMenuModal = ({
                   indirimliMenuYanLezzetler2={indirimliMenuYanLezzetler2}
                   indirimliMenuTatli={indirimliMenuTatli}
                   indirimliMenuIcecek={indirimliMenuIcecek}
+                  setTumMenu={setTumMenu}
                />
             </div>
             <button className="btn-kapat" onClick={() => setOpenSubMenu(false)}>
@@ -104,7 +119,7 @@ const SubMenuModal = ({
             </button>
             <button
                className="btn-siparise-ekle"
-               onClick={() => setOpenSubMenu(false)}
+               onClick={() => addToCart(menuName, menuPrice)}
             >
                Siparişe Ekle
             </button>
@@ -124,6 +139,7 @@ const SubMenuModal = ({
                   indirimliMenuYanLezzetler2={indirimliMenuYanLezzetler2}
                   indirimliMenuTatli={indirimliMenuTatli}
                   indirimliMenuIcecek={indirimliMenuIcecek}
+                  setTumMenu={setTumMenu}
                />
             </div>
             <button className="btn-kapat" onClick={() => setOpenSubMenu(false)}>
@@ -131,7 +147,7 @@ const SubMenuModal = ({
             </button>
             <button
                className="btn-siparise-ekle"
-               onClick={() => setOpenSubMenu(false)}
+               onClick={() => addToCart(menuName, menuPrice)}
             >
                Siparişe Ekle
             </button>
@@ -153,6 +169,7 @@ const SubMenuModal = ({
                   indirimliMenuYanLezzetler2={indirimliMenuYanLezzetler2}
                   indirimliMenuTatli={indirimliMenuTatli}
                   indirimliMenuIcecek={indirimliMenuIcecek}
+                  setTumMenu={setTumMenu}
                />
             </div>
             <button className="btn-kapat" onClick={() => setOpenSubMenu(false)}>
@@ -160,7 +177,7 @@ const SubMenuModal = ({
             </button>
             <button
                className="btn-siparise-ekle"
-               onClick={() => setOpenSubMenu(false)}
+               onClick={() => addToCart(menuName, menuPrice)}
             >
                Siparişe Ekle
             </button>
@@ -182,6 +199,7 @@ const SubMenuModal = ({
                   indirimliMenuYanLezzetler2={indirimliMenuYanLezzetler2}
                   indirimliMenuTatli={indirimliMenuTatli}
                   indirimliMenuIcecek={indirimliMenuIcecek}
+                  setTumMenu={setTumMenu}
                />
             </div>
             <button className="btn-kapat" onClick={() => setOpenSubMenu(false)}>
@@ -189,7 +207,7 @@ const SubMenuModal = ({
             </button>
             <button
                className="btn-siparise-ekle"
-               onClick={() => setOpenSubMenu(false)}
+               onClick={() => addToCart(menuName, menuPrice)}
             >
                Siparişe Ekle
             </button>
